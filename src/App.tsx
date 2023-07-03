@@ -5,9 +5,10 @@ import { useAppSelector } from './store/hook'
 import { useTranslation } from 'react-i18next'
 import zh from 'antd/locale/zh_CN'
 import en from 'antd/locale/en_US'
-import DeatilPage from './page/detail'
 import HomeView from './view/home'
 import SettingView from './view/setting'
+import DeatilPage from './page/detail'
+import EditPage from './page/edit'
 import { useEffect, useState } from 'react'
 
 export default () => {
@@ -56,6 +57,7 @@ export default () => {
           </div>
         } />
         <Route path='/detail' element={<DeatilPage />} />
+        <Route path='/edit' element={<EditPage />} />
       </Routes>
     </ConfigProvider>
   )

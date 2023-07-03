@@ -41,7 +41,7 @@ export default () => {
               </Popconfirm>
             </Col>
             {
-              todo.isOutdated ? '' : <Col><Button>{t('edit')}</Button></Col>
+              todo.isOutdated ? '' : <Col><Button onClick={() => navigate('/edit')}>{t('edit')}</Button></Col>
             }
           </Space>
         </Row>

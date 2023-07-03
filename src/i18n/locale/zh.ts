@@ -16,5 +16,18 @@ export default {
     delete: '删除',
     delete_confirm: '确认删除？',
     edit: '编辑'
+  },
+  edit: {
+    title: '标题： ',
+    title_confirm: '请输入标题！',
+    type: '类型：',
+    type_confirm: '请选择类型！',
+    startTime: '开始时间：',
+    startTime_confirm: '请选择时间！',
+    content: '内容：',
+    content_confirm: '请输入内容！',
+    save: '保存',
+    cancel: '取消',
+    successfully: '操作成功！'
   }
 }
