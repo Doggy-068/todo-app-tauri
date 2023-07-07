@@ -1,25 +1,33 @@
-import { List, Avatar, Badge, Button } from 'antd'
-import { useState } from 'react'
-import { TodoModel, TodoModelType } from '../../model/todo.model'
+import { List, Avatar, Badge, Button, FloatButton } from 'antd'
+import { PlusOutlined } from '@ant-design/icons'
+import { useEffect, useState } from 'react'
+import { TodoModel } from '../../model/todo.model'
 import dayjs from '../../plugin/dayjs'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { invoke } from '@tauri-apps/api/tauri'
+import { TodoReturnDto } from '../../dto/todo.dto'
 
 export default () => {
   const { t } = useTranslation('home')
 
   const navigate = useNavigate()
 
-  const [list] = useState<TodoModel[]>([
-    new TodoModel(1, 'Item-1', TodoModelType.GREEN, dayjs().subtract(1, 'day').toDate(), 'This is a message'),
-    new TodoModel(2, 'Item-2', TodoModelType.ORANGE, dayjs().add(1, 'day').toDate(), 'This is a message'),
-    new TodoModel(3, 'Item-3', TodoModelType.RED, dayjs().add(2, 'day').toDate(), 'This is a message')
-  ])
+  useEffect(() => {
+    invoke<TodoReturnDto[]>('fetch_todos').then(val => {
+      setList(val.map(item => new TodoModel(item.id, item.title, item.type_, new Date(item.start_date), item.content)))
+    })
+  }, [])
+
+  const [list, setList] = useState<TodoModel[]>([])
 
   const handleDetailClick = (id: number) => navigate(`/detail?id=${id}`)
 
+  const handleAddClick = () => navigate('/edit')
+
   return (
     <div style={{ boxSizing: 'border-box', width: '100%', height: '100%', padding: '1em' }}>
+      <FloatButton onClick={handleAddClick} icon={<PlusOutlined />} />
       <List
         dataSource={list}
         renderItem={item => {
