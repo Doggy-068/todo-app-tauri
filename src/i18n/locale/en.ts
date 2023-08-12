@@ -1,11 +1,17 @@
 export default {
   app: {
     home: 'Home',
+    editor: 'Editor',
     setting: 'Setting'
   },
   home: {
     outdate: 'Outdated!',
     detail: 'Detail'
+  },
+  editor: {
+    open: 'Open',
+    save_as: 'Save As',
+    successfully: 'Save successfully!'
   },
   setting: {
     language: 'Language',

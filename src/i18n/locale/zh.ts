@@ -1,11 +1,17 @@
 export default {
   app: {
     home: '主页',
+    editor: '编辑器',
     setting: '设置'
   },
   home: {
     outdate: '已过期！',
     detail: '详情'
+  },
+  editor: {
+    open: '打开',
+    save_as: '另存为',
+    successfully: '保存成功！'
   },
   setting: {
     language: '语言',

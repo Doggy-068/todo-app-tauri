@@ -1,11 +1,12 @@
 import { Menu, MenuProps, ConfigProvider } from 'antd'
-import { HomeOutlined, SettingOutlined } from '@ant-design/icons'
+import { HomeOutlined, EditOutlined, SettingOutlined } from '@ant-design/icons'
 import { useNavigate, Routes, Route, useLocation } from 'react-router-dom'
 import { useAppSelector } from './store/hook'
 import { useTranslation } from 'react-i18next'
 import zh from 'antd/locale/zh_CN'
 import en from 'antd/locale/en_US'
 import HomeView from './view/home'
+import EditorView from './view/editor'
 import SettingView from './view/setting'
 import DeatilPage from './page/detail'
 import EditPage from './page/edit'
@@ -45,12 +46,14 @@ export default () => {
               mode='horizontal'
               items={[
                 { label: t('home'), key: '/', icon: <HomeOutlined /> },
+                { label: t('editor'), key: '/editor', icon: <EditOutlined /> },
                 { label: t('setting'), key: '/setting', icon: <SettingOutlined /> }
               ]}
             />
             <div style={{ height: '100%' }}>
               <Routes>
                 <Route path='/' element={<HomeView />} />
+                <Route path='/editor' element={<EditorView />} />
                 <Route path='/setting' element={<SettingView />} />
               </Routes>
             </div>
