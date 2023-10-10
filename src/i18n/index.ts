@@ -1,18 +1,18 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import en from './locale/en'
-import zh from './locale/zh'
+import enUs from './locale/en-us'
+import zhCn from './locale/zh-cn'
 
 const resources = {
-  en,
-  zh
+  enUs,
+  zhCn
 }
 
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
+    lng: 'zhCn',
     interpolation: {
       escapeValue: false
     }
