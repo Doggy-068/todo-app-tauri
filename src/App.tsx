@@ -19,17 +19,17 @@ const Nav = () => {
   }
 
   return (
-    <div style={{ padding: '0.5em' }}>
-      <div style={{ paddingBottom: '1em', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <div style={{ boxSizing: 'border-box', padding: '0.5em', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flexShrink: 0, paddingBottom: '1em', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Avatar />
         <PlusCircleOutlined />
       </div>
-      <Input style={{ marginBottom: '0.5em' }} prefix={<SearchOutlined />} placeholder='搜索' />
-      <Menu
-        items={items}
-        onClick={handleNavItemClick}
-        style={{ border: 'none' }}
-      />
+      <div style={{ flexShrink: 0 }}>
+        <Input style={{ marginBottom: '0.5em' }} prefix={<SearchOutlined />} placeholder='搜索' />
+      </div>
+      <div style={{ height: '100%', overflow: 'auto' }}>
+        <Menu items={items} onClick={handleNavItemClick} style={{ border: 'none' }} />
+      </div>
     </div>
   )
 }
