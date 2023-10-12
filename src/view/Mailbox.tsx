@@ -5,7 +5,7 @@ import type { MenuProps } from 'antd'
 const Top = () => {
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', padding: '0.5em 0 1em 1em' }}>
+    <div style={{ display: 'flex', alignItems: 'center', padding: '0.5em 0 0 1em' }}>
       <div style={{ display: 'flex', alignItems: 'center', paddingRight: '1em', marginRight: '1.5em', borderRight: '1px solid #eeeeee' }}>
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <EditOutlined />
@@ -94,22 +94,26 @@ const MailContent = () => {
 
   return (
     <div style={{ boxSizing: 'border-box', padding: '1em', width: '100%', height: '100%' }}>
-      <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '0.5em' }}>
-        <span style={{ fontSize: 'large', fontWeight: 'bold' }}>XXXXXXXXXXX</span>
-        <StarFilled style={{ marginLeft: '1em' }} />
-      </div>
-      <div style={{ padding: '0.5em', height: '100%' }}>
-        <div>
-          <span>xxxxxxx</span>
+      <div style={{ height: '2.5em' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span style={{ fontSize: 'large', fontWeight: 'bold' }}>XXXXXXXXXXX</span>
+          <StarFilled style={{ marginLeft: '1em' }} />
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', columnGap: '0.5em' }}>
-            <Text type='secondary'>发给</Text>
+      </div>
+      <div style={{ height: 'calc(100% - 2.5em)', boxSizing: 'border-box', padding: '0.5em' }}>
+        <div style={{ height: '3em', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div>
             <span>xxxxxxx</span>
           </div>
-          <Text type='secondary'>昨天 15:00</Text>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', columnGap: '0.5em' }}>
+              <Text type='secondary'>发给</Text>
+              <span>xxxxxxx</span>
+            </div>
+            <Text type='secondary'>昨天 15:00</Text>
+          </div>
         </div>
-        <div style={{ overflow: 'hidden', height: 'calc(100% - 90px)' }}>
+        <div style={{ overflow: 'hidden', height: 'calc(100% - 3em)' }}>
           <iframe srcDoc='' style={{ border: 'none', width: '100%', height: '100%' }}></iframe>
         </div>
       </div>
@@ -121,10 +125,10 @@ export default () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
-      <div style={{ flexShrink: 0 }}>
+      <div style={{ flexShrink: 0, height: '3em' }}>
         <Top />
       </div>
-      <div style={{ height: 'calc(100% - 45px)', display: 'flex' }}>
+      <div style={{ height: 'calc(100% - 3em)', display: 'flex' }}>
         <div style={{ flexShrink: 0, height: '100%', width: '160px' }}>
           <Nav />
         </div>
