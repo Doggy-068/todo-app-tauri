@@ -1,9 +1,10 @@
 import { Menu, Input, Avatar } from 'antd'
 import type { MenuProps } from 'antd'
-import { MessageOutlined, MailOutlined, SearchOutlined, PlusCircleOutlined } from '@ant-design/icons'
+import { MessageOutlined, MailOutlined, SearchOutlined, PlusCircleOutlined, ContactsOutlined } from '@ant-design/icons'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import Message from './view/Message'
 import Mailbox from './view/Mailbox'
+import Address from './view/Address'
 
 const Nav = () => {
 
@@ -11,7 +12,8 @@ const Nav = () => {
 
   const items: MenuProps['items'] = [
     { label: '消息', key: '/message', icon: <MessageOutlined /> },
-    { label: '邮箱', key: '/mailbox', icon: <MailOutlined /> }
+    { label: '邮箱', key: '/mailbox', icon: <MailOutlined /> },
+    { label: '通讯录', key: '/address', icon: <ContactsOutlined /> }
   ]
 
   const handleNavItemClick: MenuProps['onClick'] = (event) => {
@@ -45,6 +47,7 @@ export default () => {
         <Routes>
           <Route path='/message' element={<Message />} />
           <Route path='/mailbox' element={<Mailbox />} />
+          <Route path='/address' element={<Address />} />
         </Routes>
       </div>
     </div>
