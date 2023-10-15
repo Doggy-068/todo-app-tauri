@@ -13,19 +13,9 @@
   "tauri": {
     "allowlist": {
       "all": false,
-      "shell": {
+      "window": {
         "all": false,
-        "open": true
-      },
-      "dialog": {
-        "all": false,
-        "open": true,
-        "save": true
-      },
-      "fs": {
-        "all": false,
-        "readFile": true,
-        "writeFile": true
+        "create": true
       }
     },
     "bundle": {

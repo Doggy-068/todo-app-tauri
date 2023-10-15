@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "postinstall": "node ./postinstall.cjs",
     "prepare": "husky install",
     "dev": "vite",
     "build": "tsc && vite build",
@@ -32,6 +33,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^3.0.0",
+    "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
     "typescript": "^5.2.2",
     "vite": "^4.2.1"

@@ -1,13 +1,20 @@
 import { EditOutlined, DeleteOutlined, BackwardOutlined, SearchOutlined, RightOutlined, MailOutlined, StarOutlined, FileOutlined, SendOutlined, StarFilled } from '@ant-design/icons'
 import { Avatar, Menu, Typography } from 'antd'
 import type { MenuProps } from 'antd'
+import { WebviewWindow } from '@tauri-apps/api/window'
 
 const Top = () => {
+
+  const handleNewMailClick = () => {
+    new WebviewWindow('newmail', {
+      url: '/#/page/writemail'
+    })
+  }
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', padding: '0.5em 0 0 1em' }}>
       <div style={{ display: 'flex', alignItems: 'center', paddingRight: '1em', marginRight: '1.5em', borderRight: '1px solid #eeeeee' }}>
-        <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+        <div onClick={handleNewMailClick} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <EditOutlined />
           <span style={{ marginLeft: '0.2em' }}>新建邮件</span>
         </div>

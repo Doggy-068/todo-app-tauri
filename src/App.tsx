@@ -1,10 +1,11 @@
 import { Menu, Input, Avatar } from 'antd'
 import type { MenuProps } from 'antd'
 import { MessageOutlined, MailOutlined, SearchOutlined, PlusCircleOutlined, ContactsOutlined } from '@ant-design/icons'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, Outlet } from 'react-router-dom'
 import Message from './view/Message'
 import Mailbox from './view/Mailbox'
 import Address from './view/Address'
+import PageWriteMail from './page/WriteMail'
 
 const Nav = () => {
 
@@ -39,17 +40,24 @@ const Nav = () => {
 export default () => {
 
   return (
-    <div style={{ display: 'flex', width: '100vw', height: '100vh' }}>
-      <div style={{ flexShrink: 0 }}>
-        <Nav />
-      </div>
-      <div style={{ width: '100%', boxSizing: 'border-box', padding: '0.5em' }}>
-        <Routes>
-          <Route path='/message' element={<Message />} />
-          <Route path='/mailbox' element={<Mailbox />} />
-          <Route path='/address' element={<Address />} />
-        </Routes>
-      </div>
-    </div>
+    <Routes>
+      <Route
+        path='/'
+        element={
+          <div style={{ display: 'flex', width: '100vw', height: '100vh' }}>
+            <div style={{ flexShrink: 0 }}>
+              <Nav />
+            </div>
+            <div style={{ width: '100%', boxSizing: 'border-box', padding: '0.5em' }}>
+              <Outlet />
+            </div>
+          </div>
+        }>
+        <Route path='message' element={<Message />} />
+        <Route path='mailbox' element={<Mailbox />} />
+        <Route path='address' element={<Address />} />
+      </Route>
+      <Route path='/page/writemail' element={<PageWriteMail />} />
+    </Routes>
   )
 }

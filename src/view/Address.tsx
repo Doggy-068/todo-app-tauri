@@ -1,4 +1,4 @@
-import { Avatar, Button, Menu } from 'antd'
+import { Avatar, Button, Menu, Breadcrumb } from 'antd'
 import type { MenuProps } from 'antd'
 import { ContactsOutlined } from '@ant-design/icons'
 
@@ -40,7 +40,11 @@ const Content = () => {
       </div>
       <div style={{ height: 'calc(100% - 3em)', display: 'flex', flexDirection: 'column' }}>
         <div style={{ boxSizing: 'border-box', height: '3em', flexShrink: 0, paddingLeft: '0.5em', paddingTop: '0.5em' }}>
-          <span>xxxxxxxxxxxx</span>
+          <Breadcrumb
+            items={[
+              { title: 'xxxxxxx' }
+            ]}
+          />
         </div>
         <div style={{ height: 'calc(100% - 3em)', overflow: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
