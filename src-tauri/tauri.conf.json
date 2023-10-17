@@ -16,6 +16,10 @@
       "window": {
         "all": false,
         "create": true
+      },
+      "dialog": {
+        "all": false,
+        "open": true
       }
     },
     "bundle": {
