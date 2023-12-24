@@ -24,7 +24,7 @@ const Nav = () => {
         </div>
       </div>
       <div style={{ height: 'calc(100% - 5em)', overflow: 'auto' }}>
-        <Menu items={items} style={{ borderRight: 'none' }} />
+        <Menu items={items} defaultSelectedKeys={['0']} style={{ borderRight: 'none' }} />
       </div>
     </div>
   )
@@ -46,7 +46,12 @@ const Content = () => {
             ]}
           />
         </div>
-        <div style={{ height: 'calc(100% - 3em)', overflow: 'auto' }}>
+        <div style={{ height: 'calc(100% - 3em)', overflow: 'auto', display: 'flex', flexDirection: 'column', rowGap: '0.5em' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Avatar style={{ margin: '0 0.5em', flexShrink: 0 }} />
+            <span style={{ width: '100%' }}>xxxxx(1)</span>
+            <Button type='link' style={{ flexShrink: 0 }}>下级</Button>
+          </div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Avatar style={{ margin: '0 0.5em' }} />
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

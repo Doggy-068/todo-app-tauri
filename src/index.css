@@ -5,4 +5,5 @@ html {
 body {
   overflow: hidden;
   margin: 0;
+  background: linear-gradient(-45deg, #23d5ab, #23a6d5);
 }

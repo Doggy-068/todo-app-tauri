@@ -1,25 +1,28 @@
 import { EditOutlined, DeleteOutlined, BackwardOutlined, SearchOutlined, RightOutlined, MailOutlined, StarOutlined, FileOutlined, SendOutlined, StarFilled } from '@ant-design/icons'
-import { Avatar, Menu, Typography } from 'antd'
+import { Avatar, Input, Menu, Typography } from 'antd'
 import type { MenuProps } from 'antd'
 import { WebviewWindow } from '@tauri-apps/api/window'
+import { useState } from 'react'
 
 const Top = () => {
 
   const handleNewMailClick = () => {
     new WebviewWindow('newmail', {
-      url: '/#/page/writemail'
+      url: '/#/app/page/writemail'
     })
   }
 
+  const [isSearch, setIsSearch] = useState<boolean>(false)
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', padding: '0.5em 0 0 1em' }}>
-      <div style={{ display: 'flex', alignItems: 'center', paddingRight: '1em', marginRight: '1.5em', borderRight: '1px solid #eeeeee' }}>
+    <div style={{ display: 'flex', padding: '0.5em 0 0 1em', alignItems: 'flex-start' }}>
+      <div style={{ display: 'flex', paddingRight: '1em', marginRight: '1.5em', borderRight: '1px solid #eeeeee' }}>
         <div onClick={handleNewMailClick} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <EditOutlined />
           <span style={{ marginLeft: '0.2em' }}>新建邮件</span>
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', paddingRight: '1em', marginRight: '1.5em', columnGap: '1em', borderRight: '1px solid #eeeeee' }}>
+      <div style={{ display: 'flex', paddingRight: '1em', marginRight: '1.5em', columnGap: '1em', borderRight: '1px solid #eeeeee' }}>
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <DeleteOutlined />
           <span style={{ marginLeft: '0.2em' }}>删除</span>
@@ -33,10 +36,15 @@ const Top = () => {
           <span style={{ marginLeft: '0.2em' }}>转发</span>
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-        <SearchOutlined />
-        <span style={{ marginLeft: '0.2em' }}>搜索</span>
-      </div>
+      {
+        isSearch ?
+          <Input onPressEnter={() => setIsSearch(false)} prefix={<SearchOutlined />} placeholder='搜索' style={{ width: '12em' }} size='small' />
+          :
+          <div onClick={() => setIsSearch(true)} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <SearchOutlined />
+            <span style={{ marginLeft: '0.2em' }}>搜索</span>
+          </div>
+      }
     </div>
   )
 }
@@ -59,7 +67,7 @@ const Nav = () => {
         <Text type='secondary'>xxxxxx@xx.com</Text>
       </div>
       <div style={{ height: '100%', overflow: 'auto' }}>
-        <Menu items={items} style={{ borderRight: 'none' }} />
+        <Menu items={items} defaultSelectedKeys={['1']} style={{ borderRight: 'none' }} />
       </div>
     </div>
   )

@@ -1,0 +1,12 @@
+.card {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  background: #e6f7ff;
+}
+
+.card:global(.cur) {
+  background: #e6f7ff;
+}

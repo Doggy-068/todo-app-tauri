@@ -1,10 +1,60 @@
-import { Button, Typography, Modal } from 'antd'
-import { SendOutlined, SaveOutlined, PaperClipOutlined, FileOutlined, CloseOutlined, PlusCircleOutlined } from '@ant-design/icons'
+import { Button, Typography, Modal, Input, Tree, Avatar } from 'antd'
+import { SendOutlined, SaveOutlined, PaperClipOutlined, FileOutlined, CloseOutlined, PlusCircleOutlined, SearchOutlined, GroupOutlined, FolderOutlined, HomeOutlined } from '@ant-design/icons'
 import { Editor } from '@tinymce/tinymce-react'
 import { open } from '@tauri-apps/api/dialog'
 import { useState } from 'react'
+import type { DataNode } from 'antd/es/tree'
+import type { ModalProps } from 'antd'
 
 const { Text } = Typography
+
+const ContactModal = (props: ModalProps) => {
+
+  const treeData: DataNode[] = [{
+    key: '0',
+    title:
+      <div>
+        <FolderOutlined />
+        <span style={{ marginLeft: '0.5em' }}>xxxxxx</span>
+      </div>,
+    children: [{
+      key: '0-0',
+      title: 'xxxxxxxxx'
+    }, {
+      key: '0-1',
+      title: 'xxxxxxxxxxx'
+    }]
+  }]
+
+  return (
+    <Modal open={props.open} onCancel={props.onCancel}>
+      <div style={{ display: 'flex', columnGap: '2em', height: 'calc(100vh - 280px)' }}>
+        <div style={{ width: '100%' }}>
+          <Input prefix={<SearchOutlined />} placeholder='搜索' size='small' />
+          <div style={{ display: 'flex', alignItems: 'center', margin: '0.5em 0' }}>
+            <GroupOutlined />
+            <span style={{ marginLeft: '0.5em' }}>从群聊中选择</span>
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <HomeOutlined />
+              <span style={{ marginLeft: '0.5em' }}>xxxxxxxxxx</span>
+            </div>
+            <Tree checkable treeData={treeData} />
+          </div>
+        </div>
+        <div style={{ width: '100%' }}>
+          <Text>已选择</Text>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Avatar size='small' style={{ flexShrink: 0 }} />
+            <span style={{ marginLeft: '0.5em', width: '100%' }}>xxxxxxxxxxx</span>
+            <CloseOutlined style={{ flexShrink: 0, cursor: 'pointer' }} />
+          </div>
+        </div>
+      </div>
+    </Modal>
+  )
+}
 
 export default () => {
 
@@ -102,7 +152,7 @@ export default () => {
           </div>
         </div>
       </div>
-      <Modal open={isContactModalShow} onCancel={() => setIsContactModalShow(false)}></Modal>
+      <ContactModal open={isContactModalShow} onCancel={() => setIsContactModalShow(false)} />
     </>
   )
 }
